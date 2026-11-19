@@ -1,0 +1,410 @@
+import { lazy, Suspense, useState } from 'react'
+import { ArrowDownRight, ArrowRight, CalendarDays, Clock3, MapPin } from 'lucide-react'
+import HeroSection41 from '@/components/ui/shadcn-studio-hero-section-41'
+import type { MenuData, NavigationSection } from '@/components/ui/shadcn-studio-hero-section-41'
+import type { FloorTable } from '@/components/ui/table-floor'
+import type { Dish } from '@/components/ui/dish-orbit-carousel'
+import type { ConveyorDish } from '@/components/ui/sushi-conveyor-menu'
+import './index.css'
+import './sections/cafe.css'
+
+const TableFloor = lazy(async () => {
+  const module = await import('@/components/ui/table-floor')
+  return { default: module.TableFloor }
+})
+const DishOrbitCarousel = lazy(() => import('@/components/ui/dish-orbit-carousel'))
+const SushiConveyorMenu = lazy(() => import('@/components/ui/sushi-conveyor-menu'))
+
+const navigationData: NavigationSection[] = [
+  { title: 'Our approach', href: '#about' },
+  { title: 'Menu', href: '#menu' },
+  { title: 'Reservations', href: '#reserve' },
+]
+
+const heroMenu: MenuData[] = [
+  {
+    id: 1,
+    img: '/images/signature-sushi.jpg',
+    imgAlt: 'A selection of salmon sushi',
+    dishName: 'Salmon aburi',
+    description: 'Salmon, warm rice, and a bright finish.',
+  },
+  {
+    id: 2,
+    img: '/images/salmon-roll.jpg',
+    imgAlt: 'Fresh salmon rolls arranged on a plate',
+    dishName: 'Salmon roll',
+    description: 'A fresh roll with crisp seasonal greens.',
+  },
+  {
+    id: 3,
+    img: '/images/sushi-platter.jpg',
+    imgAlt: 'A colorful sushi platter',
+    dishName: 'Sashimi set',
+    description: 'A selection from the sample menu.',
+  },
+  {
+    id: 4,
+    img: '/images/sushi-counter.jpg',
+    imgAlt: 'Sushi served at a restaurant counter',
+    dishName: 'Chef’s counter',
+    description: 'A closer look at the dining room.',
+  },
+  {
+    id: 5,
+    img: '/images/seasonal-sashimi.jpg',
+    imgAlt: 'Seasonal Japanese plates served at a table',
+    dishName: 'Seasonal plate',
+    description: 'An example of a changing menu selection.',
+  },
+]
+
+const signatureDishes: Dish[] = [
+  {
+    title: 'Salmon',
+    subtitle: 'Aburi nigiri',
+    label: 'Salmon aburi nigiri',
+    image: '/images/signature-sushi.jpg',
+    alt: 'Salmon sushi served with fresh greens',
+    eyebrow: 'SIGNATURE · NIGIRI',
+    category: 'NIGIRI',
+    price: '$8',
+    description: 'Hand-pressed rice topped with lightly seared salmon and a touch of yuzu.',
+    ingredients: ['Salmon', 'Seasoned rice', 'Yuzu'],
+    accent: '#C66B3D',
+  },
+  {
+    title: 'Crisp',
+    subtitle: 'Salmon roll',
+    label: 'Crisp salmon roll',
+    image: '/images/salmon-roll.jpg',
+    alt: 'Salmon rolls arranged with fresh greens',
+    eyebrow: 'SIGNATURE · ROLL',
+    category: 'ROLLS',
+    price: '$12',
+    description: 'Salmon, avocado, and cucumber wrapped in seasoned rice.',
+    ingredients: ['Salmon', 'Avocado', 'Cucumber', 'Nori'],
+    accent: '#C08E3A',
+  },
+  {
+    title: 'Market',
+    subtitle: 'Sashimi set',
+    label: 'Market sashimi set',
+    image: '/images/sushi-platter.jpg',
+    alt: 'A colorful platter of sushi and sashimi',
+    eyebrow: 'SIGNATURE · SASHIMI',
+    category: 'SASHIMI',
+    price: '$16',
+    description: 'A sample assortment of sashimi with pickled ginger and seasonal greens.',
+    ingredients: ['Seasonal fish', 'Pickled ginger', 'Greens'],
+    accent: '#8B9D83',
+  },
+  {
+    title: 'Tuna',
+    subtitle: 'Tataki hand roll',
+    label: 'Tuna tataki hand roll',
+    image: '/images/seasonal-sashimi.jpg',
+    alt: 'A seasonal Japanese plate served on a ceramic dish',
+    eyebrow: 'SIGNATURE · HAND ROLL',
+    category: 'HAND ROLLS',
+    price: '$14',
+    description: 'Seared tuna with crisp cucumber, rice, and nori.',
+    ingredients: ['Tuna', 'Cucumber', 'Seasoned rice', 'Nori'],
+    accent: '#606C38',
+  },
+]
+
+const conveyorDishes: ConveyorDish[] = [
+  {
+    id: 'salmon-nigiri',
+    name: 'Salmon nigiri',
+    price: '$4.20',
+    tier: 2,
+    description: 'Salmon served over seasoned rice.',
+    details: ['2 pieces'],
+    image: '/images/conveyor-1.webp',
+  },
+  {
+    id: 'tuna-nigiri',
+    name: 'Tuna nigiri',
+    price: '$6.80',
+    tier: 4,
+    description: 'Tuna with warm rice and a touch of soy.',
+    details: ['2 pieces'],
+    image: '/images/conveyor-2.webp',
+  },
+  {
+    id: 'ebi-nigiri',
+    name: 'Ebi nigiri',
+    price: '$4.20',
+    tier: 2,
+    description: 'Poached shrimp served over seasoned rice.',
+    details: ['2 pieces'],
+    image: '/images/conveyor-3.webp',
+  },
+  {
+    id: 'california-roll',
+    name: 'California roll',
+    price: '$5.40',
+    tier: 3,
+    description: 'Crab, avocado, and cucumber, rolled in orange tobiko.',
+    details: ['4 pieces'],
+    image: '/images/conveyor-4.webp',
+  },
+  {
+    id: 'dragon-roll',
+    name: 'Dragon roll',
+    price: '$8.50',
+    tier: 5,
+    description: 'Shrimp tempura roll with avocado and eel sauce.',
+    details: ['4 pieces'],
+    image: '/images/conveyor-5.webp',
+  },
+  {
+    id: 'tamago',
+    name: 'Tamago nigiri',
+    price: '$3.20',
+    tier: 1,
+    description: 'Sweet rolled omelette with seasoned rice and nori.',
+    details: ['2 pieces'],
+    image: '/images/conveyor-6.webp',
+  },
+  {
+    id: 'edamame',
+    name: 'Salted edamame',
+    price: '$3.20',
+    tier: 1,
+    description: 'Steamed soybeans finished with flaky salt.',
+    details: ['1 bowl'],
+    image: '/images/conveyor-7.webp',
+  },
+  {
+    id: 'mochi',
+    name: 'Mochi ice cream',
+    price: '$5.40',
+    tier: 3,
+    description: 'Matcha and strawberry mochi ice cream.',
+    details: ['2 pieces'],
+    image: '/images/conveyor-8.webp',
+  },
+]
+
+const conveyorLegend = { 1: '$3.20', 2: '$4.20', 3: '$5.40', 4: '$6.80', 5: '$8.50' }
+const reservationTimes = ['6:00 pm', '6:30 pm', '7:00 pm', '7:30 pm', '8:00 pm', '8:30 pm']
+const bookedTables = {
+  '6:00 pm': ['t4'],
+  '6:30 pm': ['t3', 't7'],
+  '7:00 pm': ['t7', 't8'],
+  '7:30 pm': ['t4', 't5'],
+  '8:00 pm': ['t1', 't3', 't6'],
+  '8:30 pm': ['t2', 't6'],
+}
+const tables: FloorTable[] = [
+  { id: 't1', label: '1', x: 80, y: 92, seats: 2, shape: 'round', joinWith: 't2' },
+  { id: 't2', label: '2', x: 180, y: 92, seats: 2, shape: 'round', joinWith: 't1' },
+  { id: 't3', label: '3', x: 310, y: 92, seats: 4, shape: 'square' },
+  { id: 't4', label: '4', x: 490, y: 96, seats: 6, shape: 'long' },
+  { id: 't5', label: '5', x: 90, y: 244, seats: 4, shape: 'square' },
+  { id: 't6', label: '6', x: 250, y: 244, seats: 2, shape: 'round', joinWith: 't7' },
+  { id: 't7', label: '7', x: 350, y: 244, seats: 2, shape: 'round', joinWith: 't6' },
+  { id: 't8', label: '8', x: 500, y: 244, seats: 4, shape: 'square' },
+]
+
+type TableSelection = {
+  tableIds: string[]
+  party: number
+  time: string
+}
+
+type TablePreview = TableSelection & { date: string }
+
+function localDateValue() {
+  const date = new Date()
+  date.setMinutes(date.getMinutes() - date.getTimezoneOffset())
+  return date.toISOString().slice(0, 10)
+}
+
+function maxDateValue() {
+  const date = new Date()
+  date.setMonth(date.getMonth() + 6)
+  date.setMinutes(date.getMinutes() - date.getTimezoneOffset())
+  return date.toISOString().slice(0, 10)
+}
+
+export default function App() {
+  const [reservationDate, setReservationDate] = useState(localDateValue)
+  const [tablePreview, setTablePreview] = useState<TablePreview | null>(null)
+  const [dishPreview, setDishPreview] = useState('')
+  const [orderPreview, setOrderPreview] = useState('')
+
+  const handleTablePreview = async (selection: TableSelection) => {
+    if (!reservationDate || reservationDate < localDateValue() || reservationDate > maxDateValue()) {
+      throw new Error('Choose a date within the next six months before previewing your table.')
+    }
+    setTablePreview({ ...selection, date: reservationDate })
+  }
+
+  const addDishToPreview = (dish: ConveyorDish) => {
+    setOrderPreview(`${dish.name} added to your order preview. No order was submitted.`)
+  }
+
+  return (
+    <div className="cafe-site" id="top">
+      <HeroSection41
+        className="cafe-hero"
+        navigationData={navigationData}
+        menudata={heroMenu}
+        brandName="MOONLIGHT"
+        headerCtaLabel="Reserve a table"
+        heading="A little night, a lot of flavor."
+        description="Seasonal sushi, a lively counter, and a table worth lingering over."
+        primaryCtaLabel="Explore the menu"
+        secondaryCtaLabel="Book a table"
+        primaryCtaHref="#menu"
+        secondaryCtaHref="#reserve"
+        autoplayDelay={4800}
+      />
+
+      <main>
+      <section className="moonlight-story" id="about">
+        <div className="moonlight-story-mark" aria-hidden="true">
+          <ArrowDownRight size={25} strokeWidth={1.3} />
+        </div>
+        <div className="moonlight-story-heading">
+          <p className="moonlight-kicker">MOONLIGHT · JAPANESE DINING CONCEPT</p>
+          <h2>Good food.<br /><span>Good company.</span></h2>
+        </div>
+        <div className="moonlight-story-copy">
+          <p>
+            From the moving belt to the chef’s counter, Moonlight is a restaurant concept built
+            around sharing a few plates and taking your time.
+          </p>
+          <a href="#menu">See the menu <ArrowRight size={15} aria-hidden="true" /></a>
+        </div>
+      </section>
+
+      <section className="moonlight-menu" id="menu">
+        <header className="moonlight-section-heading">
+          <div>
+            <p className="moonlight-kicker">FROM THE KITCHEN</p>
+            <h2>Signatures, <span>in season.</span></h2>
+          </div>
+          <p>Explore a sample menu. Dishes and prices are illustrative, not a live restaurant menu.</p>
+        </header>
+        <Suspense fallback={<div className="moonlight-orbit-fallback" aria-busy="true">Loading menu…</div>}>
+          <DishOrbitCarousel
+            className="moonlight-orbit"
+            dishes={signatureDishes}
+            height="min(760px, 100svh)"
+            backdrop="/images/restaurant-interior.jpg"
+            loop={false}
+            fontSrc={null}
+            onOrder={(dish) => setDishPreview(`${dish.title} ${dish.subtitle} added to your order preview. No order was submitted.`)}
+          />
+        </Suspense>
+        <p className="moonlight-preview-note" role="status" aria-live="polite">
+          {dishPreview || 'Sample menu and prices. Select a dish to add it to your preview.'}
+        </p>
+      </section>
+
+      <section className="moonlight-belt" id="kaiten">
+        <header className="moonlight-section-heading moonlight-belt-heading">
+          <div>
+            <p className="moonlight-kicker">THE KAITEN COUNTER</p>
+            <h2>Take a plate.<br /><span>Stay awhile.</span></h2>
+          </div>
+          <p>Pick a plate from the belt to see its details. The menu and prices shown are samples for this concept.</p>
+        </header>
+        <Suspense fallback={<div className="moonlight-belt-fallback" aria-busy="true">Loading the belt…</div>}>
+          <SushiConveyorMenu
+            items={conveyorDishes}
+            legend={conveyorLegend}
+            eyebrow="MOONLIGHT · SAMPLE MENU"
+            heading="A little something for the table."
+            caption="Select a plate as it comes around to view its ingredients and sample price."
+            autoplay
+            interval={5000}
+            onAdd={addDishToPreview}
+            labels={{ add: 'Add to order preview', close: 'Close', previous: 'Previous plate', next: 'Next plate' }}
+            action={
+              <a className="moonlight-belt-cta" href="#reserve">
+                Reserve a table <ArrowRight size={15} aria-hidden="true" />
+              </a>
+            }
+          />
+        </Suspense>
+        <p className="moonlight-preview-note" role="status" aria-live="polite">
+          {orderPreview || 'Order preview only. No food order is sent to a restaurant.'}
+        </p>
+      </section>
+
+      <section className="moonlight-reserve" id="reserve">
+        <div className="moonlight-reserve-copy">
+          <p className="moonlight-kicker">PLAN YOUR VISIT</p>
+          <h2>Choose your<br /><span>place at the table.</span></h2>
+          <p>
+            Select a date, time, party size, and an available table. This interactive preview does
+            not check live availability or submit a booking.
+          </p>
+          <label className="moonlight-date-field" htmlFor="reservation-date">
+            <span><CalendarDays size={16} aria-hidden="true" /> Date</span>
+            <input
+              id="reservation-date"
+              type="date"
+              min={localDateValue()}
+              max={maxDateValue()}
+              value={reservationDate}
+              onChange={(event) => {
+                setReservationDate(event.currentTarget.value)
+                setTablePreview(null)
+              }}
+            />
+          </label>
+          <p className="moonlight-reserve-note">
+            <Clock3 size={16} aria-hidden="true" />
+            Sample evening times; availability is not live.
+          </p>
+          <p className="moonlight-reserve-note">
+            <MapPin size={16} aria-hidden="true" />
+            Restaurant location details are not part of this concept.
+          </p>
+          {tablePreview && (
+            <div className="moonlight-confirmation" role="status" aria-live="polite">
+              <span>TABLE PREVIEW</span>
+              <strong>
+                Table {tablePreview.tableIds.join(' + ')} · {tablePreview.party}{' '}
+                {tablePreview.party === 1 ? 'guest' : 'guests'} · {tablePreview.time}
+              </strong>
+              <span>{new Intl.DateTimeFormat('en', { dateStyle: 'long' }).format(new Date(`${tablePreview.date}T12:00:00`))}</span>
+              <small>This is only a preview. No reservation was sent.</small>
+            </div>
+          )}
+        </div>
+        <div className="moonlight-floor">
+          <Suspense fallback={<div className="moonlight-floor-fallback" aria-busy="true">Loading the floor plan…</div>}>
+            <TableFloor
+              title="Choose a table"
+              tables={tables}
+              times={reservationTimes}
+              booked={bookedTables}
+              maxParty={8}
+              theme="light"
+              onChange={() => setTablePreview(null)}
+              onConfirm={handleTablePreview}
+            />
+          </Suspense>
+          <p className="moonlight-floor-note">
+            The floor plan and availability are illustrative sample data.
+          </p>
+        </div>
+      </section>
+      </main>
+
+      <footer className="moonlight-footer" id="visit">
+        <a className="moonlight-wordmark" href="#top">MOONLIGHT</a>
+        <p>Japanese dining concept · Sample menu and table reservation preview</p>
+        <a href="#top" aria-label="Back to top">Back to top <ArrowRight size={15} aria-hidden="true" /></a>
+      </footer>
+    </div>
+  )
+}

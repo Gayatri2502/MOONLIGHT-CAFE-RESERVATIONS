@@ -1,0 +1,719 @@
+.cafe-site {
+  --background: #E8DCC7;
+  --foreground: #303B2E;
+  --card: #D4B895;
+  --card-foreground: #303B2E;
+  --primary: #C66B3D;
+  --primary-foreground: #E8DCC7;
+  --muted: #D4B895;
+  --muted-foreground: #606C38;
+  --border: #B08B6E;
+  --input: #B08B6E;
+  --ring: #C66B3D;
+  --accent: #C08E3A;
+  --accent-foreground: #303B2E;
+  --destructive: #C66B3D;
+  color: #303B2E;
+  background: #E8DCC7;
+  font-family: Georgia, "Times New Roman", serif;
+  overflow: clip;
+  position: relative;
+}
+
+.cafe-site::before {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  content: "";
+  opacity: .025;
+  pointer-events: none;
+}
+
+.cafe-site .cafe-hero > header {
+  border-color: rgb(96 108 56 / 24%);
+  background: rgb(232 220 199 / 92%);
+  box-shadow: none;
+  backdrop-filter: blur(14px);
+}
+
+.cafe-site .cafe-hero > header a,
+.cafe-site .cafe-hero > header button {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.cafe-site .cafe-hero > header a:focus-visible,
+.cafe-site .cafe-hero > header button:focus-visible {
+  outline: 2px solid #C66B3D;
+  outline-offset: 3px;
+}
+
+.cafe-site .cafe-hero > header a[class*="rounded-full"] {
+  min-height: 44px;
+  border: 1px solid #C66B3D;
+  border-radius: 999px;
+  background: #C66B3D;
+  color: #E8DCC7;
+  transition: background .25s ease, color .25s ease;
+}
+
+.cafe-site .cafe-hero > header a[class*="rounded-full"]:hover {
+  background: #E8DCC7;
+  color: #C66B3D;
+}
+
+.cafe-site .cafe-hero > .cafe-hero-content {
+  padding-top: 70px;
+}
+
+.cafe-site .cafe-hero > .cafe-hero-content > section {
+  padding: clamp(42px, 6vw, 82px) 0 45px;
+}
+
+.cafe-site .cafe-hero > .cafe-hero-content > section > .mx-auto {
+  gap: clamp(28px, 5vw, 62px);
+}
+
+.cafe-site .cafe-hero > .cafe-hero-content > section .grid-cols-1.gap-6 {
+  align-items: center;
+  gap: clamp(30px, 6vw, 84px);
+}
+
+.cafe-site .cafe-hero h1 {
+  max-width: 760px;
+  color: #303B2E;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 7.4vw, 94px);
+  font-weight: 400;
+  letter-spacing: -.065em;
+  line-height: .96;
+  text-align: left;
+}
+
+.cafe-site .cafe-hero h1 + p {
+  max-width: 490px;
+  color: #606C38;
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.65;
+  text-align: left;
+}
+
+.cafe-site .cafe-hero h1 ~ div {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.cafe-site .cafe-hero h1 ~ div a {
+  min-height: 46px;
+  border: 1px solid #C66B3D;
+  border-radius: 999px;
+  background: #C66B3D;
+  color: #E8DCC7;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  transition: background .25s ease, color .25s ease;
+}
+
+.cafe-site .cafe-hero h1 ~ div a:hover {
+  background: #E8DCC7;
+  color: #C66B3D;
+}
+
+.cafe-site .cafe-hero h1 ~ div a + a {
+  border-color: #606C38;
+  background: transparent;
+  color: #303B2E;
+}
+
+.cafe-site .cafe-hero h1 ~ div a + a:hover {
+  background: #606C38;
+  color: #E8DCC7;
+}
+
+.cafe-site .cafe-hero > .cafe-hero-content > section .grid-cols-1.gap-6 > div:last-child img {
+  width: 100%;
+  height: clamp(330px, 42vw, 540px);
+  border: 1px solid rgb(96 108 56 / 24%);
+  border-radius: 28px;
+  object-fit: cover;
+}
+
+.cafe-site .cafe-hero > .cafe-hero-content > section .grid-cols-1.gap-24 {
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, .75fr);
+  align-items: center;
+  gap: 30px;
+  padding-top: 22px;
+  border-top: 1px solid rgb(96 108 56 / 24%);
+}
+
+.cafe-site .cafe-hero .cafe-thumb-button {
+  min-height: 148px;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px solid transparent;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.cafe-site .cafe-hero .cafe-thumb-button[aria-pressed="true"] {
+  border-color: #C66B3D;
+}
+
+.cafe-site .cafe-hero .cafe-thumb-button > div {
+  width: 100%;
+  height: 100px;
+}
+
+.cafe-site .cafe-hero .cafe-thumb-button > div > svg {
+  display: none;
+}
+
+.cafe-site .cafe-hero .cafe-thumb-button img {
+  width: 100px;
+  height: 88px;
+  border: 1px solid rgb(96 108 56 / 24%);
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.cafe-site .cafe-hero .cafe-thumb-label {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  color: #606C38;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cafe-site .cafe-hero .cafe-thumb-button[aria-pressed="true"] .cafe-thumb-label {
+  color: #303B2E;
+}
+
+.cafe-site .cafe-hero .cafe-caption-index {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid #C66B3D;
+  border-radius: 50%;
+  color: #C66B3D;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.cafe-site .cafe-hero .cafe-caption-index + div {
+  background: #C66B3D;
+}
+
+.cafe-site .cafe-hero .cafe-caption-index ~ p {
+  display: grid;
+  gap: 5px;
+  color: #606C38;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.cafe-site .cafe-hero .cafe-caption-index ~ p strong {
+  color: #303B2E;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.moonlight-story,
+.moonlight-menu,
+.moonlight-belt,
+.moonlight-reserve {
+  padding: clamp(72px, 9vw, 126px) max(24px, calc((100vw - 1200px) / 2));
+  border-top: 1px solid rgb(96 108 56 / 24%);
+  scroll-margin-top: 76px;
+}
+
+.moonlight-story {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1.1fr) minmax(240px, .7fr);
+  align-items: start;
+  gap: 28px;
+}
+
+.moonlight-story-mark {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid #B08B6E;
+  border-radius: 50%;
+  color: #C66B3D;
+}
+
+.moonlight-kicker {
+  margin: 0;
+  color: #606C38;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+}
+
+.moonlight-story-heading h2,
+.moonlight-section-heading h2,
+.moonlight-reserve-copy h2 {
+  margin: 16px 0 0;
+  color: #303B2E;
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: 400;
+  letter-spacing: -.06em;
+  line-height: 1.02;
+}
+
+.moonlight-story-heading h2 span,
+.moonlight-section-heading h2 span,
+.moonlight-reserve-copy h2 span {
+  color: #C66B3D;
+}
+
+.moonlight-story-copy {
+  max-width: 390px;
+  margin-top: 35px;
+}
+
+.moonlight-story-copy p,
+.moonlight-section-heading > p,
+.moonlight-reserve-copy > p:not(.moonlight-kicker):not(.moonlight-reserve-note) {
+  margin: 0;
+  color: #606C38;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.moonlight-story-copy a,
+.moonlight-footer > a:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+  color: #303B2E;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.moonlight-story-copy a:hover,
+.moonlight-footer > a:last-child:hover {
+  color: #C66B3D;
+}
+
+.moonlight-menu {
+  background: #D4B895;
+}
+
+.moonlight-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 35px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgb(96 108 56 / 28%);
+}
+
+.moonlight-section-heading > p {
+  max-width: 390px;
+  margin-bottom: 5px;
+}
+
+.moonlight-orbit {
+  margin-top: 26px;
+}
+
+.moonlight-orbit-fallback {
+  display: grid;
+  min-height: min(2356px, 310svh);
+  margin-top: 26px;
+  place-items: center;
+  border: 1px solid rgb(96 108 56 / 16%);
+  border-radius: 28px;
+  background: #E8DCC7;
+  color: #606C38;
+  font-size: 13px;
+}
+
+.moonlight-orbit .dsh-root {
+  border: 1px solid rgb(96 108 56 / 16%);
+  border-radius: 28px;
+}
+
+.moonlight-orbit .dsh-top {
+  left: auto;
+  right: 16px;
+  top: 20px;
+}
+
+.moonlight-orbit .dsh-top .dsh-btn {
+  width: auto;
+  padding: 0 14px;
+  border: 1px solid rgb(96 108 56 / 24%);
+  border-radius: 999px;
+  background: #E8DCC7;
+  color: #303B2E;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.moonlight-orbit .dsh-card {
+  border: 1px solid rgb(96 108 56 / 18%);
+  border-radius: 24px;
+  background: rgb(232 220 199 / 92%);
+}
+
+.moonlight-orbit .dsh-badge {
+  border-radius: 16px;
+}
+
+.moonlight-orbit .dsh-react .dsh-like {
+  border: 1px solid #C66B3D;
+  background: #C66B3D;
+  color: #E8DCC7;
+}
+
+.moonlight-preview-note {
+  min-height: 1.5em;
+  margin: 18px 0 0;
+  color: #606C38;
+  font-size: 13px;
+}
+
+.moonlight-belt {
+  --background: #606C38;
+  --foreground: #E8DCC7;
+  --card: #8B9D83;
+  --card-foreground: #303B2E;
+  --primary: #C66B3D;
+  --primary-foreground: #E8DCC7;
+  --muted: #8B9D83;
+  --muted-foreground: #E8DCC7;
+  --border: #B08B6E;
+  --input: #B08B6E;
+  --ring: #C66B3D;
+  --accent: #C08E3A;
+  --accent-foreground: #303B2E;
+  --chart-1: #606C38;
+  --chart-2: #8B9D83;
+  --chart-3: #C08E3A;
+  --chart-4: #B08B6E;
+  --chart-5: #C66B3D;
+  background: #606C38;
+  color: #E8DCC7;
+}
+
+.moonlight-belt .moonlight-section-heading {
+  border-color: rgb(232 220 199 / 28%);
+}
+
+.moonlight-belt .moonlight-kicker,
+.moonlight-belt .moonlight-section-heading > p,
+.moonlight-belt .moonlight-preview-note {
+  color: #E8DCC7;
+}
+
+.moonlight-belt .moonlight-section-heading h2,
+.moonlight-belt .moonlight-section-heading h2 span {
+  color: #E8DCC7;
+}
+
+.moonlight-belt .moonlight-section-heading h2 span {
+  font-style: italic;
+}
+
+.moonlight-belt [data-slot="sushi-conveyor-menu"] {
+  min-height: 0;
+  margin: 24px 0 0;
+  border: 1px solid rgb(232 220 199 / 20%);
+  border-radius: 28px;
+  background: #E8DCC7;
+  color: #303B2E;
+}
+
+.moonlight-belt-fallback {
+  display: grid;
+  min-height: 480px;
+  margin-top: 24px;
+  place-items: center;
+  border: 1px solid rgb(232 220 199 / 20%);
+  border-radius: 28px;
+  background: #E8DCC7;
+  color: #606C38;
+  font-size: 13px;
+}
+
+.moonlight-belt-cta {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  border: 1px solid #C66B3D;
+  border-radius: 999px;
+  background: #C66B3D;
+  color: #E8DCC7;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease;
+}
+
+.moonlight-belt-cta:hover {
+  background: #E8DCC7;
+  color: #C66B3D;
+}
+
+.moonlight-belt .moonlight-preview-note {
+  margin-top: 16px;
+}
+
+.moonlight-reserve {
+  display: grid;
+  grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr);
+  align-items: start;
+  gap: clamp(36px, 7vw, 100px);
+  background: #E8DCC7;
+}
+
+.moonlight-reserve-copy > p:not(.moonlight-kicker):not(.moonlight-reserve-note) {
+  max-width: 410px;
+  margin-top: 22px;
+}
+
+.moonlight-date-field {
+  display: grid;
+  max-width: 320px;
+  gap: 9px;
+  margin-top: 28px;
+  color: #303B2E;
+  font-size: 13px;
+}
+
+.moonlight-date-field > span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.moonlight-date-field svg,
+.moonlight-reserve-note svg {
+  color: #C66B3D;
+}
+
+.moonlight-date-field input {
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid #B08B6E;
+  border-radius: 14px;
+  background: #D4B895;
+  color: #303B2E;
+}
+
+.moonlight-reserve-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 0;
+  color: #606C38;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.moonlight-confirmation {
+  display: grid;
+  gap: 8px;
+  max-width: 410px;
+  margin-top: 28px;
+  padding: 18px;
+  border: 1px solid #B08B6E;
+  border-radius: 20px;
+  background: #D4B895;
+  color: #303B2E;
+}
+
+.moonlight-confirmation > span:first-child {
+  color: #606C38;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+}
+
+.moonlight-confirmation strong {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.moonlight-confirmation small {
+  color: #606C38;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.moonlight-floor {
+  min-width: 0;
+}
+
+.moonlight-floor-fallback {
+  display: grid;
+  min-height: 520px;
+  place-items: center;
+  border: 1px solid #B08B6E;
+  border-radius: 26px;
+  background: #D4B895;
+  color: #606C38;
+  font-size: 13px;
+}
+
+.moonlight-floor > div {
+  max-width: 100%;
+  border-color: #B08B6E;
+  border-radius: 26px;
+  background: #D4B895;
+  box-shadow: 0 18px 50px -38px rgb(48 59 46 / 35%);
+}
+
+.moonlight-floor-note {
+  margin: 12px 0 0;
+  color: #606C38;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.moonlight-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px max(24px, calc((100vw - 1200px) / 2));
+  background: #606C38;
+  color: #E8DCC7;
+}
+
+.moonlight-wordmark {
+  color: #E8DCC7;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-decoration: none;
+}
+
+.moonlight-footer p {
+  margin: 0;
+  color: #E8DCC7;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.moonlight-footer > a:last-child {
+  flex: 0 0 auto;
+  margin: 0;
+  color: #E8DCC7;
+}
+
+.moonlight-footer > a:last-child:hover {
+  color: #D4B895;
+}
+
+@media (max-width: 800px) {
+  .moonlight-story {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .moonlight-story-copy {
+    grid-column: 2;
+    max-width: 520px;
+    margin-top: 0;
+  }
+
+  .moonlight-reserve {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+  }
+
+  .moonlight-date-field {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  .cafe-site .cafe-hero > .cafe-hero-content {
+    padding-top: 65px;
+  }
+
+  .cafe-site .cafe-hero > .cafe-hero-content > section {
+    padding-top: 32px;
+  }
+
+  .cafe-site .cafe-hero h1 {
+    font-size: clamp(44px, 12vw, 66px);
+  }
+
+  .cafe-site .cafe-hero h1 + p {
+    font-size: 16px;
+  }
+
+  .cafe-site .cafe-hero > .cafe-hero-content > section .grid-cols-1.gap-24 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .moonlight-story,
+  .moonlight-menu,
+  .moonlight-belt,
+  .moonlight-reserve {
+    padding: 68px 20px;
+  }
+
+  .moonlight-story {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .moonlight-story-copy {
+    grid-column: auto;
+    margin-top: 0;
+  }
+
+  .moonlight-story-heading h2,
+  .moonlight-section-heading h2,
+  .moonlight-reserve-copy h2 {
+    font-size: clamp(38px, 10vw, 58px);
+  }
+
+  .moonlight-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .moonlight-orbit {
+    margin-right: -12px;
+    margin-left: -12px;
+  }
+
+  .moonlight-belt [data-sushi-demo] {
+    margin-right: -12px;
+    margin-left: -12px;
+    border-radius: 20px;
+  }
+
+  .moonlight-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px 20px;
+  }
+
+  .moonlight-footer > a:last-child {
+    margin-top: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

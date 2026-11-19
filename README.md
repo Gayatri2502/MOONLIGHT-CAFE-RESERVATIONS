@@ -1,0 +1,47 @@
+# Moonlight Café
+
+A Japanese dining and sushi-bar website concept combining a rotating signature-dish menu, an interactive kaiten belt, and a table-floor reservation preview.
+
+## Design direction
+
+The visual system follows an Organic direction: sand and oat surfaces, moss and terracotta accents, a serif-led type system, rounded controls, and a restrained grain texture. Its signature interaction is the featured dish orbit, paired with a separate moving sushi belt.
+
+## The four design prompts
+
+These are the four supplied component briefs used to shape the site. The integrated React components are in `src/components/ui/`.
+
+### 1. Table booking design
+
+Integrate the supplied `pk-table-floor.tsx` React component into the existing shadcn-compatible, Tailwind CSS, TypeScript project. Provide selectable tables, sample availability by time, party-size controls, joined neighboring tables, and an accessible responsive floor plan. Use a local confirmation preview; do not imply that a real reservation has been sent.
+
+### 2. Home-page hero section
+
+Use the supplied `shadcn-studio-hero-section-41.tsx` as the home-page hero. Include responsive navigation, a featured image, synchronized image/thumbnail/caption carousels, and clear links to the menu and reservation sections.
+
+### 3. Menu section
+
+Integrate the supplied `dish-orbit-carousel.tsx` as an interactive signature-menu section. Keep the scroll-led dish orbit, keyboard and touch navigation, ingredient details, and locally bundled food imagery. Present sample menu descriptions and prices as illustrative rather than as verified restaurant information.
+
+### 4. Main restaurant design
+
+Use the supplied `sushi-conveyor-menu.tsx` as a separate kaiten-sushi showcase. Include a moving plate belt, plate details, a price-tier legend, pause/navigation controls, and an order preview that does not submit a real food order.
+
+## Run locally
+
+```sh
+npm install
+npm run dev
+```
+
+## Reservation and menu previews
+
+The floor plan, booked time slots, menu, and prices are sample data. The table selector displays a local preview only; it does not check live availability or submit a booking. Adding a dish updates a local order-preview message only; it does not send an order.
+
+Restaurant and sushi photography is bundled locally in `public/images/`. The source photographs are from Unsplash; the plate cutouts are from the supplied sushi component reference.
+
+## Build and lint
+
+```sh
+npm run build
+npm run lint
+```
