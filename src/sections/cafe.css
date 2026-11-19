@@ -476,3 +476,34 @@
     scroll-behavior: auto;
   }
 }
+
+.moonlight-page-nav { display:flex; justify-content:space-between; align-items:center; padding:22px max(24px, calc((100vw - 1200px)/2)); background:#e8dcc7; border-bottom:1px solid #b08b6e; }
+.moonlight-page-logo { color:#171513; font-size:20px; font-weight:700; letter-spacing:.08em; text-decoration:none; }
+.moonlight-page-nav > div { display:flex; gap:10px; }
+.moonlight-page-nav button, .moonlight-panel-top button { display:grid; place-items:center; border:0; background:transparent; color:#171513; cursor:pointer; width:44px; height:44px; }
+.moonlight-overlay { position:fixed; inset:0; z-index:100; background:rgb(23 21 19 / 65%); display:flex; justify-content:flex-end; }
+.moonlight-panel { width:min(100%, 480px); height:100%; overflow:auto; padding:30px clamp(24px,5vw,48px); background:#e8dcc7; color:#171513; box-shadow:-20px 0 60px rgb(0 0 0 / 20%); }
+.moonlight-panel-top { display:flex; align-items:center; justify-content:space-between; color:#606c38; font-size:11px; font-weight:bold; letter-spacing:.12em; }
+.moonlight-panel-links { margin-top:42px; }
+.moonlight-panel-links a { display:flex; justify-content:space-between; align-items:center; padding:20px 0; border-bottom:1px solid #b08b6e; color:#171513; font-size:clamp(28px,5vw,40px); font-weight:bold; text-decoration:none; }
+.moonlight-panel-links a:hover, .moonlight-search-results a:hover { color:#c8102e; }
+.moonlight-search { margin-top:48px; }
+.moonlight-search label { font-size:26px; font-weight:bold; }
+.moonlight-search-input { display:flex; gap:12px; align-items:center; margin-top:20px; padding:12px 15px; border:1px solid #b08b6e; border-radius:12px; background:#f4ecdf; }
+.moonlight-search-input input { width:100%; outline:none; background:transparent; color:#171513; }
+.moonlight-search > p, .moonlight-search-results p { color:#606c38; margin-top:20px; line-height:1.6; }
+.moonlight-search-results a { display:flex; justify-content:space-between; padding:16px 0; border-bottom:1px solid #b08b6e; color:#171513; text-decoration:none; }
+.moonlight-menu-list, .moonlight-visit { padding:clamp(70px,9vw,120px) max(24px, calc((100vw - 1200px)/2)); scroll-margin-top:20px; }
+.moonlight-menu-list h1, .moonlight-visit h1 { margin:16px 0; font-size:clamp(42px,6vw,76px); font-weight:700; letter-spacing:-.06em; line-height:1.05; }
+.moonlight-menu-list h1 span, .moonlight-visit h1 span { color:#c8102e; }
+.moonlight-menu-list > p:not(.moonlight-kicker), .moonlight-visit > p:not(.moonlight-kicker) { color:#606c38; max-width:500px; line-height:1.8; }
+.moonlight-dish-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin-top:40px; }
+.moonlight-dish-grid article { overflow:hidden; border:1px solid #b08b6e; border-radius:20px; background:#f1e8d9; }
+.moonlight-dish-grid img { width:100%; height:220px; object-fit:contain; padding:12px; }
+.moonlight-dish-grid article div { padding:20px; }
+.moonlight-dish-grid h2 { font-size:22px; font-weight:700; }
+.moonlight-dish-grid p { margin:10px 0; color:#606c38; font-size:14px; line-height:1.6; }
+.moonlight-dish-grid small { color:#775b49; line-height:1.5; }
+.moonlight-visit { min-height:65vh; }
+.moonlight-visit .moonlight-belt-cta { margin-top:28px; }
+.moonlight-visit-link { display:inline-flex; gap:8px; align-items:center; margin:28px 0 0 20px; color:#171513; }

@@ -50,6 +50,8 @@ export type DishOrbitCarouselProps = {
   loop?: boolean
   /** Embedded display face (Outfit, OFL). Pass null to use the host's font. */
   fontSrc?: string | null
+  onSearch?: () => void
+  onMenu?: () => void
   onPlay?: (dish: Dish, index: number) => void
   onOrder?: (dish: Dish, index: number) => void
   onChange?: (index: number) => void
@@ -238,6 +240,8 @@ export function DishOrbitCarousel({
   loop = true,
   fontSrc = FONT_DATA,
   onPlay,
+  onSearch,
+  onMenu,
   onOrder,
   onChange,
   className,
@@ -468,8 +472,8 @@ export function DishOrbitCarousel({
         </svg>
 
         <div className="dsh-top">
-          <button type="button" className="dsh-btn" aria-label="Search">{Icon.search}</button>
-          <button type="button" className="dsh-btn" aria-label="Menu">{Icon.menu}</button>
+          <button type="button" className="dsh-btn" aria-label="Search" onClick={onSearch}>{Icon.search}</button>
+          <button type="button" className="dsh-btn" aria-label="Menu" onClick={onMenu}>{Icon.menu}</button>
         </div>
 
         <div className="dsh-pager" role="tablist" aria-label="Choose a dish">

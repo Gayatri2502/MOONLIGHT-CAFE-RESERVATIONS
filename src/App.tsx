@@ -1,5 +1,5 @@
-import { lazy, Suspense, useState } from 'react'
-import { ArrowDownRight, ArrowRight, CalendarDays, Clock3, MapPin } from 'lucide-react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import { ArrowDownRight, ArrowRight, CalendarDays, Clock3, MapPin, Menu, Search, X } from 'lucide-react'
 import type { FloorTable } from '@/components/ui/table-floor'
 import type { Dish } from '@/components/ui/dish-orbit-carousel'
 import type { ConveyorDish } from '@/components/ui/sushi-conveyor-menu'
@@ -204,6 +204,25 @@ function maxDateValue() {
 }
 
 export default function App() {
+  const path = window.location.pathname.replace(/\/$/, '') || '/'
+  const isHome = path === '/'
+  const [panel, setPanel] = useState<'menu' | 'search' | null>(null)
+  const [query, setQuery] = useState('')
+  const searchRef = useRef<HTMLInputElement>(null)
+  useEffect(() => {
+    if (panel === 'search') searchRef.current?.focus()
+    const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') setPanel(null) }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [panel])
+  const searchItems = [
+    ...signatureDishes.map(d => ({ name: d.label || `${d.title} ${d.subtitle}`, details: `${d.description} ${d.ingredients?.join(' ') || ''}`, href: '/menu#signatures' })),
+    ...conveyorDishes.map(d => ({ name: d.name, details: d.description, href: '/menu#kaiten' })),
+    { name: 'Reserve a table', details: 'date time party floor plan booking', href: '/reservations' },
+    { name: 'About Moonlight', details: 'story japanese dining', href: '/about' },
+    { name: 'Visit', details: 'location contact opening hours', href: '/visit' },
+  ]
+  const results = query.trim() ? searchItems.filter(item => `${item.name} ${item.details}`.toLowerCase().includes(query.trim().toLowerCase())) : []
   const [reservationDate, setReservationDate] = useState(localDateValue)
   const [tablePreview, setTablePreview] = useState<TablePreview | null>(null)
   const [dishPreview, setDishPreview] = useState('')
@@ -230,8 +249,10 @@ export default function App() {
 
   return (
     <div className="cafe-site" id="top">
+      {!isHome && <header className="moonlight-page-nav"><a href="/" className="moonlight-page-logo">MOONLIGHT</a><div><button type="button" onClick={() => setPanel('search')} aria-label="Search"><Search size={21} /></button><button type="button" onClick={() => setPanel('menu')} aria-label="Open menu"><Menu size={23} /></button></div></header>}
+      {panel && <div className="moonlight-overlay" onClick={() => setPanel(null)}><div className="moonlight-panel" role="dialog" aria-modal="true" aria-label={panel === 'menu' ? 'Navigation' : 'Search Moonlight'} onClick={e => e.stopPropagation()}><div className="moonlight-panel-top"><span>{panel === 'menu' ? 'EXPLORE MOONLIGHT' : 'FIND SOMETHING'}</span><button type="button" onClick={() => setPanel(null)} aria-label="Close"><X size={22} /></button></div>{panel === 'menu' ? <nav className="moonlight-panel-links" aria-label="Main navigation"><a href="/">Home <ArrowRight /></a><a href="/menu">The menu <ArrowRight /></a><a href="/about">Our story <ArrowRight /></a><a href="/reservations">Reservations <ArrowRight /></a><a href="/visit">Visit <ArrowRight /></a></nav> : <div className="moonlight-search"><label htmlFor="site-search">Search dishes and pages</label><div className="moonlight-search-input"><Search size={20} /><input ref={searchRef} id="site-search" value={query} onChange={e => setQuery(e.target.value)} placeholder="Try salmon or reservations" /></div>{query.trim() ? <div className="moonlight-search-results" aria-live="polite">{results.length ? results.map(item => <a key={item.name} href={item.href}><span>{item.name}</span><ArrowRight size={17} /></a>) : <p>No matches found. Try another search.</p>}</div> : <p>Search the sample menu, our story, or reservations.</p>}</div>}</div></div>}
       <main>
-      <section className="moonlight-featured" id="menu" aria-label="Signature dishes">
+      {isHome && <section className="moonlight-featured" id="menu" aria-label="Signature dishes">
         <h1 className="sr-only">Moonlight Japanese dining</h1>
         <Suspense fallback={<div className="moonlight-featured-fallback" aria-busy="true">Loading menu…</div>}>
           <DishOrbitCarousel
@@ -240,6 +261,8 @@ export default function App() {
             height="100svh"
             backdrop="/images/orbit-room.webp"
             loop={false}
+            onSearch={() => setPanel('search')}
+            onMenu={() => setPanel('menu')}
             onPlay={previewDishVideo}
             onOrder={addSignatureToPreview}
           />
@@ -247,9 +270,9 @@ export default function App() {
         <p className="moonlight-preview-note" role="status" aria-live="polite">
           {dishPreview || 'Dish names, ratings, chef details, and likes are illustrative sample content.'}
         </p>
-      </section>
+      </section>}
 
-      <section className="moonlight-story" id="about">
+      {(isHome || path === "/about") && <section className="moonlight-story" id="about">
         <div className="moonlight-story-mark" aria-hidden="true">
           <ArrowDownRight size={25} strokeWidth={1.3} />
         </div>
@@ -262,11 +285,13 @@ export default function App() {
             From the moving belt to the chef’s counter, Moonlight is a restaurant concept built
             around sharing a few plates and taking your time.
           </p>
-          <a href="#kaiten">See the menu <ArrowRight size={15} aria-hidden="true" /></a>
+          <a href="/menu#kaiten">See the menu <ArrowRight size={15} aria-hidden="true" /></a>
         </div>
-      </section>
+      </section>}
 
-      <section className="moonlight-belt" id="kaiten">
+      {path === "/menu" && <section className="moonlight-menu-list" id="signatures"><p className="moonlight-kicker">THE MENU · SAMPLE DISHES</p><h1>Something for <span>everyone.</span></h1><p>Explore our illustrative signature dishes and sushi plates.</p><div className="moonlight-dish-grid">{signatureDishes.map(dish => <article key={dish.label}><img src={dish.image} alt={dish.alt || dish.label} /><div><h2>{dish.label}</h2><p>{dish.description}</p><small>{dish.ingredients?.join(" · ")}</small></div></article>)}</div></section>}
+
+      {(isHome || path === "/menu") && <section className="moonlight-belt" id="kaiten">
         <header className="moonlight-section-heading moonlight-belt-heading">
           <div>
             <p className="moonlight-kicker">THE KAITEN COUNTER</p>
@@ -286,7 +311,7 @@ export default function App() {
             onAdd={addDishToPreview}
             labels={{ add: 'Add to order preview', close: 'Close', previous: 'Previous plate', next: 'Next plate' }}
             action={
-              <a className="moonlight-belt-cta" href="#reserve">
+              <a className="moonlight-belt-cta" href="/reservations">
                 Reserve a table <ArrowRight size={15} aria-hidden="true" />
               </a>
             }
@@ -295,9 +320,9 @@ export default function App() {
         <p className="moonlight-preview-note" role="status" aria-live="polite">
           {orderPreview || 'Order preview only. No food order is sent to a restaurant.'}
         </p>
-      </section>
+      </section>}
 
-      <section className="moonlight-reserve" id="reserve">
+      {(isHome || path === "/reservations") && <section className="moonlight-reserve" id="reserve">
         <div className="moonlight-reserve-copy">
           <p className="moonlight-kicker">PLAN YOUR VISIT</p>
           <h2>Choose your<br /><span>place at the table.</span></h2>
@@ -356,11 +381,13 @@ export default function App() {
             The floor plan and availability are illustrative sample data.
           </p>
         </div>
-      </section>
+      </section>}
+      {path === '/visit' && <section className="moonlight-visit"><p className="moonlight-kicker">PLAN YOUR VISIT</p><h1>Come as you are.<br /><span>Stay awhile.</span></h1><p>Moonlight is a Japanese dining concept. A restaurant address, opening hours and contact details have not been provided yet.</p><a className="moonlight-belt-cta" href="/reservations">Explore the table preview <ArrowRight size={15} /></a><a className="moonlight-visit-link" href="/menu">Explore the sample menu <ArrowRight size={15} /></a></section>}
+      {!['/', '/menu', '/about', '/reservations', '/visit'].includes(path) && <section className="moonlight-visit"><p className="moonlight-kicker">PAGE NOT FOUND</p><h1>Let’s get you <span>back.</span></h1><p>We couldn’t find that page.</p><a className="moonlight-belt-cta" href="/">Back home <ArrowRight size={15} /></a></section>}
       </main>
 
       <footer className="moonlight-footer" id="visit">
-        <a className="moonlight-wordmark" href="#top">MOONLIGHT</a>
+        <a className="moonlight-wordmark" href="/">MOONLIGHT</a>
         <p>Japanese dining concept · Sample menu and table reservation preview</p>
         <a href="#top" aria-label="Back to top">Back to top <ArrowRight size={15} aria-hidden="true" /></a>
       </footer>
