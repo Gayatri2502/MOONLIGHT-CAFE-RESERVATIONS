@@ -30,198 +30,7 @@
   pointer-events: none;
 }
 
-.cafe-site .cafe-hero > header {
-  border-color: rgb(96 108 56 / 24%);
-  background: rgb(232 220 199 / 92%);
-  box-shadow: none;
-  backdrop-filter: blur(14px);
-}
-
-.cafe-site .cafe-hero > header a,
-.cafe-site .cafe-hero > header button {
-  font-family: Georgia, "Times New Roman", serif;
-}
-
-.cafe-site .cafe-hero > header a:focus-visible,
-.cafe-site .cafe-hero > header button:focus-visible {
-  outline: 2px solid #C66B3D;
-  outline-offset: 3px;
-}
-
-.cafe-site .cafe-hero > header a[class*="rounded-full"] {
-  min-height: 44px;
-  border: 1px solid #C66B3D;
-  border-radius: 999px;
-  background: #C66B3D;
-  color: #E8DCC7;
-  transition: background .25s ease, color .25s ease;
-}
-
-.cafe-site .cafe-hero > header a[class*="rounded-full"]:hover {
-  background: #E8DCC7;
-  color: #C66B3D;
-}
-
-.cafe-site .cafe-hero > .cafe-hero-content {
-  padding-top: 70px;
-}
-
-.cafe-site .cafe-hero > .cafe-hero-content > section {
-  padding: clamp(42px, 6vw, 82px) 0 45px;
-}
-
-.cafe-site .cafe-hero > .cafe-hero-content > section > .mx-auto {
-  gap: clamp(28px, 5vw, 62px);
-}
-
-.cafe-site .cafe-hero > .cafe-hero-content > section .grid-cols-1.gap-6 {
-  align-items: center;
-  gap: clamp(30px, 6vw, 84px);
-}
-
-.cafe-site .cafe-hero h1 {
-  max-width: 760px;
-  color: #303B2E;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(48px, 7.4vw, 94px);
-  font-weight: 400;
-  letter-spacing: -.065em;
-  line-height: .96;
-  text-align: left;
-}
-
-.cafe-site .cafe-hero h1 + p {
-  max-width: 490px;
-  color: #606C38;
-  font-size: clamp(16px, 1.6vw, 19px);
-  line-height: 1.65;
-  text-align: left;
-}
-
-.cafe-site .cafe-hero h1 ~ div {
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-
-.cafe-site .cafe-hero h1 ~ div a {
-  min-height: 46px;
-  border: 1px solid #C66B3D;
-  border-radius: 999px;
-  background: #C66B3D;
-  color: #E8DCC7;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 14px;
-  transition: background .25s ease, color .25s ease;
-}
-
-.cafe-site .cafe-hero h1 ~ div a:hover {
-  background: #E8DCC7;
-  color: #C66B3D;
-}
-
-.cafe-site .cafe-hero h1 ~ div a + a {
-  border-color: #606C38;
-  background: transparent;
-  color: #303B2E;
-}
-
-.cafe-site .cafe-hero h1 ~ div a + a:hover {
-  background: #606C38;
-  color: #E8DCC7;
-}
-
-.cafe-site .cafe-hero > .cafe-hero-content > section .grid-cols-1.gap-6 > div:last-child img {
-  width: 100%;
-  height: clamp(330px, 42vw, 540px);
-  border: 1px solid rgb(96 108 56 / 24%);
-  border-radius: 28px;
-  object-fit: cover;
-}
-
-.cafe-site .cafe-hero > .cafe-hero-content > section .grid-cols-1.gap-24 {
-  grid-template-columns: minmax(0, 1.45fr) minmax(280px, .75fr);
-  align-items: center;
-  gap: 30px;
-  padding-top: 22px;
-  border-top: 1px solid rgb(96 108 56 / 24%);
-}
-
-.cafe-site .cafe-hero .cafe-thumb-button {
-  min-height: 148px;
-  flex-direction: column;
-  gap: 8px;
-  border-bottom: 1px solid transparent;
-  font-family: Georgia, "Times New Roman", serif;
-}
-
-.cafe-site .cafe-hero .cafe-thumb-button[aria-pressed="true"] {
-  border-color: #C66B3D;
-}
-
-.cafe-site .cafe-hero .cafe-thumb-button > div {
-  width: 100%;
-  height: 100px;
-}
-
-.cafe-site .cafe-hero .cafe-thumb-button > div > svg {
-  display: none;
-}
-
-.cafe-site .cafe-hero .cafe-thumb-button img {
-  width: 100px;
-  height: 88px;
-  border: 1px solid rgb(96 108 56 / 24%);
-  border-radius: 18px;
-  object-fit: cover;
-}
-
-.cafe-site .cafe-hero .cafe-thumb-label {
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  color: #606C38;
-  font-size: 12px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.cafe-site .cafe-hero .cafe-thumb-button[aria-pressed="true"] .cafe-thumb-label {
-  color: #303B2E;
-}
-
-.cafe-site .cafe-hero .cafe-caption-index {
-  display: grid;
-  width: 40px;
-  height: 40px;
-  flex: 0 0 auto;
-  place-items: center;
-  border: 1px solid #C66B3D;
-  border-radius: 50%;
-  color: #C66B3D;
-  font-size: 13px;
-  font-variant-numeric: tabular-nums;
-}
-
-.cafe-site .cafe-hero .cafe-caption-index + div {
-  background: #C66B3D;
-}
-
-.cafe-site .cafe-hero .cafe-caption-index ~ p {
-  display: grid;
-  gap: 5px;
-  color: #606C38;
-  font-size: 13px;
-  line-height: 1.55;
-}
-
-.cafe-site .cafe-hero .cafe-caption-index ~ p strong {
-  color: #303B2E;
-  font-size: 16px;
-  font-weight: 600;
-}
-
 .moonlight-story,
-.moonlight-menu,
 .moonlight-belt,
 .moonlight-reserve {
   padding: clamp(72px, 9vw, 126px) max(24px, calc((100vw - 1200px) / 2));
@@ -301,8 +110,51 @@
   color: #C66B3D;
 }
 
-.moonlight-menu {
+.moonlight-featured {
+  min-height: 100svh;
   background: #D4B895;
+  scroll-margin-top: 0;
+}
+
+.moonlight-featured-orbit {
+  margin: 0;
+}
+
+.moonlight-featured-orbit .dsh-root {
+  border: 0;
+}
+
+.moonlight-featured-orbit .dsh-top {
+  left: auto;
+  right: 16px;
+  top: 20px;
+}
+
+.moonlight-featured-orbit .dsh-top .dsh-btn {
+  width: auto;
+  padding: 0 14px;
+  border: 1px solid rgb(96 108 56 / 24%);
+  border-radius: 999px;
+  background: #E8DCC7;
+  color: #303B2E;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.moonlight-featured-orbit .dsh-card {
+  border: 1px solid rgb(96 108 56 / 18%);
+  border-radius: 24px;
+  background: rgb(232 220 199 / 92%);
+}
+
+.moonlight-featured-orbit .dsh-badge {
+  border-radius: 16px;
+}
+
+.moonlight-featured-orbit .dsh-react .dsh-like {
+  border: 1px solid #C66B3D;
+  background: #C66B3D;
+  color: #E8DCC7;
 }
 
 .moonlight-section-heading {
@@ -319,11 +171,7 @@
   margin-bottom: 5px;
 }
 
-.moonlight-orbit {
-  margin-top: 26px;
-}
-
-.moonlight-orbit-fallback {
+.moonlight-featured-fallback {
   display: grid;
   min-height: min(2356px, 310svh);
   margin-top: 26px;
@@ -333,44 +181,6 @@
   background: #E8DCC7;
   color: #606C38;
   font-size: 13px;
-}
-
-.moonlight-orbit .dsh-root {
-  border: 1px solid rgb(96 108 56 / 16%);
-  border-radius: 28px;
-}
-
-.moonlight-orbit .dsh-top {
-  left: auto;
-  right: 16px;
-  top: 20px;
-}
-
-.moonlight-orbit .dsh-top .dsh-btn {
-  width: auto;
-  padding: 0 14px;
-  border: 1px solid rgb(96 108 56 / 24%);
-  border-radius: 999px;
-  background: #E8DCC7;
-  color: #303B2E;
-  font-size: 12px;
-  text-decoration: none;
-}
-
-.moonlight-orbit .dsh-card {
-  border: 1px solid rgb(96 108 56 / 18%);
-  border-radius: 24px;
-  background: rgb(232 220 199 / 92%);
-}
-
-.moonlight-orbit .dsh-badge {
-  border-radius: 16px;
-}
-
-.moonlight-orbit .dsh-react .dsh-like {
-  border: 1px solid #C66B3D;
-  background: #C66B3D;
-  color: #E8DCC7;
 }
 
 .moonlight-preview-note {
@@ -639,29 +449,8 @@
 }
 
 @media (max-width: 620px) {
-  .cafe-site .cafe-hero > .cafe-hero-content {
-    padding-top: 65px;
-  }
-
-  .cafe-site .cafe-hero > .cafe-hero-content > section {
-    padding-top: 32px;
-  }
-
-  .cafe-site .cafe-hero h1 {
-    font-size: clamp(44px, 12vw, 66px);
-  }
-
-  .cafe-site .cafe-hero h1 + p {
-    font-size: 16px;
-  }
-
-  .cafe-site .cafe-hero > .cafe-hero-content > section .grid-cols-1.gap-24 {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 10px;
-  }
-
   .moonlight-story,
-  .moonlight-menu,
+  .moonlight-featured,
   .moonlight-belt,
   .moonlight-reserve {
     padding: 68px 20px;
@@ -678,7 +467,6 @@
   }
 
   .moonlight-story-heading h2,
-  .moonlight-section-heading h2,
   .moonlight-reserve-copy h2 {
     font-size: clamp(38px, 10vw, 58px);
   }
@@ -689,12 +477,15 @@
     gap: 16px;
   }
 
-  .moonlight-orbit {
-    margin-right: -12px;
-    margin-left: -12px;
+  .moonlight-featured {
+    padding: 0;
   }
 
-  .moonlight-belt [data-sushi-demo] {
+  .moonlight-featured-orbit .dsh-card {
+    border-radius: 18px;
+  }
+
+  .moonlight-belt [data-slot="sushi-conveyor-menu"] {
     margin-right: -12px;
     margin-left: -12px;
     border-radius: 20px;

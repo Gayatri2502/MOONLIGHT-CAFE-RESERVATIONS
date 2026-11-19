@@ -16,11 +16,11 @@ Integrate the supplied `pk-table-floor.tsx` React component into the existing sh
 
 ### 2. Home-page hero section
 
-Use the supplied `shadcn-studio-hero-section-41.tsx` as the home-page hero. Include responsive navigation, a featured image, synchronized image/thumbnail/caption carousels, and clear links to the menu and reservation sections.
+Use the supplied `dish-orbit-carousel.tsx` as the home-page hero: bring its scroll-driven, navigable signature-dish orbit to the top of the page, with its sample price, ingredients, and a reservation link. The supplied `shadcn-studio-hero-section-41.tsx` slideshow and the separate “Signatures, in season.” menu heading are not part of this hero.
 
 ### 3. Menu section
 
-Integrate the supplied `dish-orbit-carousel.tsx` as an interactive signature-menu section. Keep the scroll-led dish orbit, keyboard and touch navigation, ingredient details, and locally bundled food imagery. Present sample menu descriptions and prices as illustrative rather than as verified restaurant information.
+Keep the moving kaiten conveyor as the separate menu showcase, with sample dishes and prices clearly identified as illustrative.
 
 ### 4. Main restaurant design
 

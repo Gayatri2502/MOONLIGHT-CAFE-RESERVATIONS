@@ -1,7 +1,5 @@
 import { lazy, Suspense, useState } from 'react'
 import { ArrowDownRight, ArrowRight, CalendarDays, Clock3, MapPin } from 'lucide-react'
-import HeroSection41 from '@/components/ui/shadcn-studio-hero-section-41'
-import type { MenuData, NavigationSection } from '@/components/ui/shadcn-studio-hero-section-41'
 import type { FloorTable } from '@/components/ui/table-floor'
 import type { Dish } from '@/components/ui/dish-orbit-carousel'
 import type { ConveyorDish } from '@/components/ui/sushi-conveyor-menu'
@@ -14,50 +12,6 @@ const TableFloor = lazy(async () => {
 })
 const DishOrbitCarousel = lazy(() => import('@/components/ui/dish-orbit-carousel'))
 const SushiConveyorMenu = lazy(() => import('@/components/ui/sushi-conveyor-menu'))
-
-const navigationData: NavigationSection[] = [
-  { title: 'Our approach', href: '#about' },
-  { title: 'Menu', href: '#menu' },
-  { title: 'Reservations', href: '#reserve' },
-]
-
-const heroMenu: MenuData[] = [
-  {
-    id: 1,
-    img: '/images/signature-sushi.jpg',
-    imgAlt: 'A selection of salmon sushi',
-    dishName: 'Salmon aburi',
-    description: 'Salmon, warm rice, and a bright finish.',
-  },
-  {
-    id: 2,
-    img: '/images/salmon-roll.jpg',
-    imgAlt: 'Fresh salmon rolls arranged on a plate',
-    dishName: 'Salmon roll',
-    description: 'A fresh roll with crisp seasonal greens.',
-  },
-  {
-    id: 3,
-    img: '/images/sushi-platter.jpg',
-    imgAlt: 'A colorful sushi platter',
-    dishName: 'Sashimi set',
-    description: 'A selection from the sample menu.',
-  },
-  {
-    id: 4,
-    img: '/images/sushi-counter.jpg',
-    imgAlt: 'Sushi served at a restaurant counter',
-    dishName: 'Chef’s counter',
-    description: 'A closer look at the dining room.',
-  },
-  {
-    id: 5,
-    img: '/images/seasonal-sashimi.jpg',
-    imgAlt: 'Seasonal Japanese plates served at a table',
-    dishName: 'Seasonal plate',
-    description: 'An example of a changing menu selection.',
-  },
-]
 
 const signatureDishes: Dish[] = [
   {
@@ -248,24 +202,31 @@ export default function App() {
     setOrderPreview(`${dish.name} added to your order preview. No order was submitted.`)
   }
 
+  const addSignatureToPreview = (dish: Dish) => {
+    setDishPreview(`${dish.title} ${dish.subtitle} added to your order preview. No order was submitted.`)
+  }
+
   return (
     <div className="cafe-site" id="top">
-      <HeroSection41
-        className="cafe-hero"
-        navigationData={navigationData}
-        menudata={heroMenu}
-        brandName="MOONLIGHT"
-        headerCtaLabel="Reserve a table"
-        heading="A little night, a lot of flavor."
-        description="Seasonal sushi, a lively counter, and a table worth lingering over."
-        primaryCtaLabel="Explore the menu"
-        secondaryCtaLabel="Book a table"
-        primaryCtaHref="#menu"
-        secondaryCtaHref="#reserve"
-        autoplayDelay={4800}
-      />
-
       <main>
+      <section className="moonlight-featured" id="menu" aria-label="Signature dishes">
+        <h1 className="sr-only">Moonlight Japanese dining</h1>
+        <Suspense fallback={<div className="moonlight-featured-fallback" aria-busy="true">Loading menu…</div>}>
+          <DishOrbitCarousel
+            className="moonlight-featured-orbit"
+            dishes={signatureDishes}
+            height="min(760px, 100svh)"
+            backdrop="/images/restaurant-interior.jpg"
+            loop={false}
+            fontSrc={null}
+            onOrder={addSignatureToPreview}
+          />
+        </Suspense>
+        <p className="moonlight-preview-note" role="status" aria-live="polite">
+          {dishPreview || 'Sample menu and prices. Select a dish to add it to your preview.'}
+        </p>
+      </section>
+
       <section className="moonlight-story" id="about">
         <div className="moonlight-story-mark" aria-hidden="true">
           <ArrowDownRight size={25} strokeWidth={1.3} />
@@ -279,32 +240,8 @@ export default function App() {
             From the moving belt to the chef’s counter, Moonlight is a restaurant concept built
             around sharing a few plates and taking your time.
           </p>
-          <a href="#menu">See the menu <ArrowRight size={15} aria-hidden="true" /></a>
+          <a href="#kaiten">See the menu <ArrowRight size={15} aria-hidden="true" /></a>
         </div>
-      </section>
-
-      <section className="moonlight-menu" id="menu">
-        <header className="moonlight-section-heading">
-          <div>
-            <p className="moonlight-kicker">FROM THE KITCHEN</p>
-            <h2>Signatures, <span>in season.</span></h2>
-          </div>
-          <p>Explore a sample menu. Dishes and prices are illustrative, not a live restaurant menu.</p>
-        </header>
-        <Suspense fallback={<div className="moonlight-orbit-fallback" aria-busy="true">Loading menu…</div>}>
-          <DishOrbitCarousel
-            className="moonlight-orbit"
-            dishes={signatureDishes}
-            height="min(760px, 100svh)"
-            backdrop="/images/restaurant-interior.jpg"
-            loop={false}
-            fontSrc={null}
-            onOrder={(dish) => setDishPreview(`${dish.title} ${dish.subtitle} added to your order preview. No order was submitted.`)}
-          />
-        </Suspense>
-        <p className="moonlight-preview-note" role="status" aria-live="polite">
-          {dishPreview || 'Sample menu and prices. Select a dish to add it to your preview.'}
-        </p>
       </section>
 
       <section className="moonlight-belt" id="kaiten">
