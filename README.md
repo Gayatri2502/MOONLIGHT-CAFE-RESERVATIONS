@@ -16,7 +16,7 @@ Integrate the supplied `pk-table-floor.tsx` React component into the existing sh
 
 ### 2. Home-page hero section
 
-Use the supplied `dish-orbit-carousel.tsx` as the home-page hero: bring its scroll-driven, navigable signature-dish orbit to the top of the page, with its sample price, ingredients, and a reservation link. The supplied `shadcn-studio-hero-section-41.tsx` slideshow and the separate “Signatures, in season.” menu heading are not part of this hero.
+Use the supplied `dish-orbit-carousel.tsx` as the home-page hero, matching its light dining-room backdrop, orbiting plated dishes, two-weight title, rating card, ingredient tabs, dish thumbnails, and navigation controls. Keep the reservation link and preserve the separate menu and reservation sections below. The supplied `shadcn-studio-hero-section-41.tsx` slideshow and the separate “Signatures, in season.” menu heading are not part of this hero.
 
 ### 3. Menu section
 
@@ -35,7 +35,7 @@ npm run dev
 
 ## Reservation and menu previews
 
-The floor plan, booked time slots, menu, and prices are sample data. The table selector displays a local preview only; it does not check live availability or submit a booking. Adding a dish updates a local order-preview message only; it does not send an order.
+The floor plan, booked time slots, menu, prices, carousel dishes, ratings, chef details, and likes are illustrative sample data. The table selector displays a local preview only; it does not check live availability or submit a booking. Adding a dish updates a local order-preview message only; it does not send an order.
 
 Restaurant and sushi photography is bundled locally in `public/images/`. The source photographs are from Unsplash; the plate cutouts are from the supplied sushi component reference.
 

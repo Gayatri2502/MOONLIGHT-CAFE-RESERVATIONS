@@ -112,49 +112,21 @@
 
 .moonlight-featured {
   min-height: 100svh;
-  background: #D4B895;
+  background: #f1f2ee;
   scroll-margin-top: 0;
 }
 
 .moonlight-featured-orbit {
+  --background: #f1f2ee;
+  --foreground: #151613;
+  --card: #fff;
+  --card-foreground: #151613;
+  --primary: #7c8f63;
+  --primary-foreground: #fff;
+  --muted: #e7e9e3;
+  --muted-foreground: #50534b;
+  --ring: #7c8f63;
   margin: 0;
-}
-
-.moonlight-featured-orbit .dsh-root {
-  border: 0;
-}
-
-.moonlight-featured-orbit .dsh-top {
-  left: auto;
-  right: 16px;
-  top: 20px;
-}
-
-.moonlight-featured-orbit .dsh-top .dsh-btn {
-  width: auto;
-  padding: 0 14px;
-  border: 1px solid rgb(96 108 56 / 24%);
-  border-radius: 999px;
-  background: #E8DCC7;
-  color: #303B2E;
-  font-size: 12px;
-  text-decoration: none;
-}
-
-.moonlight-featured-orbit .dsh-card {
-  border: 1px solid rgb(96 108 56 / 18%);
-  border-radius: 24px;
-  background: rgb(232 220 199 / 92%);
-}
-
-.moonlight-featured-orbit .dsh-badge {
-  border-radius: 16px;
-}
-
-.moonlight-featured-orbit .dsh-react .dsh-like {
-  border: 1px solid #C66B3D;
-  background: #C66B3D;
-  color: #E8DCC7;
 }
 
 .moonlight-section-heading {
@@ -479,10 +451,6 @@
 
   .moonlight-featured {
     padding: 0;
-  }
-
-  .moonlight-featured-orbit .dsh-card {
-    border-radius: 18px;
   }
 
   .moonlight-belt [data-slot="sushi-conveyor-menu"] {
