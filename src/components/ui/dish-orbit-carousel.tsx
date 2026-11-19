@@ -158,11 +158,11 @@ const CSS =
   "filter:drop-shadow(0 16px 22px rgba(0,0,0,.2)) drop-shadow(0 3px 5px rgba(0,0,0,.12))}" +
   ".dsh-head{position:absolute;left:388px;top:96px;width:330px;height:150px}" +
   ".dsh-hd{position:absolute;inset:0;visibility:hidden}" +
-  ".dsh-eye{font-size:12.5px;font-weight:600;letter-spacing:.01em;margin:0 0 4px 2px}" +
+  ".dsh-eye{font-size:12.5px;font-weight:700;letter-spacing:.01em;margin:0 0 4px 2px}" +
   ".dsh-t1,.dsh-t2{display:block;white-space:nowrap;line-height:1;text-transform:uppercase;margin:0}" +
-  ".dsh-t1{font-weight:200;letter-spacing:-.015em;margin-top:6px}" +
-  ".dsh-t2{font-weight:800;letter-spacing:-.025em;margin-top:6px;color:color-mix(in oklab,var(--color-foreground) 86%,transparent)}" +
-  ".dsh-acts{position:absolute;left:396px;top:280px;display:flex;gap:44px;font-size:12.5px;font-weight:500}" +
+  ".dsh-t1{font-weight:700;letter-spacing:-.015em;margin-top:6px}" +
+  ".dsh-t2{font-weight:800;letter-spacing:-.025em;margin-top:6px;color:var(--color-foreground)}" +
+  ".dsh-acts{position:absolute;left:396px;top:280px;display:flex;gap:44px;font-size:12.5px;font-weight:700}" +
   ".dsh-acts .dsh-btn{display:flex;align-items:center;gap:9px;padding:4px 0}" +
   ".dsh-acts .dsh-ico{width:13px;height:13px}" +
   ".dsh-acts .dsh-fill{fill:currentColor;stroke:none}" +
@@ -178,7 +178,7 @@ const CSS =
   ".dsh-badge{position:absolute;left:0;top:0;width:46px;height:62px;border-radius:10px}" +
   ".dsh-badge svg{position:absolute;left:17px;bottom:9px;width:12px;height:12px;fill:var(--color-foreground);opacity:.8}" +
   ".dsh-num{position:absolute;left:10px;top:4px;font-size:36px;font-weight:700;letter-spacing:-.04em;line-height:1}" +
-  ".dsh-chef{font-size:19px;font-weight:600;letter-spacing:-.01em;margin:0}" +
+  ".dsh-chef{font-size:19px;font-weight:700;letter-spacing:-.01em;margin:0}" +
   ".dsh-kit{font-size:10.5px;color:var(--color-muted-foreground);margin:3px 0 12px}" +
   ".dsh-desc{font-size:12.5px;line-height:1.38;margin:0;min-height:52px}" +
   ".dsh-ing{display:flex;flex-wrap:wrap;gap:5px;margin:0;padding:0;list-style:none;min-height:52px}" +

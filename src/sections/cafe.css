@@ -1,19 +1,19 @@
 .cafe-site {
   --background: #E8DCC7;
-  --foreground: #303B2E;
+  --foreground: #171513;
   --card: #D4B895;
-  --card-foreground: #303B2E;
-  --primary: #C66B3D;
+  --card-foreground: #171513;
+  --primary: #C8102E;
   --primary-foreground: #E8DCC7;
   --muted: #D4B895;
   --muted-foreground: #606C38;
   --border: #B08B6E;
   --input: #B08B6E;
-  --ring: #C66B3D;
-  --accent: #C08E3A;
-  --accent-foreground: #303B2E;
-  --destructive: #C66B3D;
-  color: #303B2E;
+  --ring: #C8102E;
+  --accent: #C8102E;
+  --accent-foreground: #171513;
+  --destructive: #C8102E;
+  color: #171513;
   background: #E8DCC7;
   font-family: Georgia, "Times New Roman", serif;
   overflow: clip;
@@ -52,7 +52,7 @@
   place-items: center;
   border: 1px solid #B08B6E;
   border-radius: 50%;
-  color: #C66B3D;
+  color: #C8102E;
 }
 
 .moonlight-kicker {
@@ -67,9 +67,9 @@
 .moonlight-section-heading h2,
 .moonlight-reserve-copy h2 {
   margin: 16px 0 0;
-  color: #303B2E;
+  color: #171513;
   font-size: clamp(40px, 6vw, 76px);
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: -.06em;
   line-height: 1.02;
 }
@@ -77,7 +77,7 @@
 .moonlight-story-heading h2 span,
 .moonlight-section-heading h2 span,
 .moonlight-reserve-copy h2 span {
-  color: #C66B3D;
+  color: #C8102E;
 }
 
 .moonlight-story-copy {
@@ -100,14 +100,14 @@
   align-items: center;
   gap: 9px;
   margin-top: 24px;
-  color: #303B2E;
+  color: #171513;
   font-size: 14px;
   text-decoration: none;
 }
 
 .moonlight-story-copy a:hover,
 .moonlight-footer > a:last-child:hover {
-  color: #C66B3D;
+  color: #C8102E;
 }
 
 .moonlight-featured {
@@ -118,14 +118,14 @@
 
 .moonlight-featured-orbit {
   --background: #f1f2ee;
-  --foreground: #151613;
+  --foreground: #171513;
   --card: #fff;
   --card-foreground: #151613;
-  --primary: #7c8f63;
+  --primary: #C8102E;
   --primary-foreground: #fff;
   --muted: #e7e9e3;
   --muted-foreground: #50534b;
-  --ring: #7c8f63;
+  --ring: #C8102E;
   margin: 0;
 }
 
@@ -166,21 +166,21 @@
   --background: #606C38;
   --foreground: #E8DCC7;
   --card: #8B9D83;
-  --card-foreground: #303B2E;
-  --primary: #C66B3D;
+  --card-foreground: #171513;
+  --primary: #C8102E;
   --primary-foreground: #E8DCC7;
   --muted: #8B9D83;
   --muted-foreground: #E8DCC7;
   --border: #B08B6E;
   --input: #B08B6E;
-  --ring: #C66B3D;
-  --accent: #C08E3A;
-  --accent-foreground: #303B2E;
+  --ring: #C8102E;
+  --accent: #C8102E;
+  --accent-foreground: #171513;
   --chart-1: #606C38;
   --chart-2: #8B9D83;
-  --chart-3: #C08E3A;
+  --chart-3: #C8102E;
   --chart-4: #B08B6E;
-  --chart-5: #C66B3D;
+  --chart-5: #C8102E;
   background: #606C38;
   color: #E8DCC7;
 }
@@ -210,7 +210,7 @@
   border: 1px solid rgb(232 220 199 / 20%);
   border-radius: 28px;
   background: #E8DCC7;
-  color: #303B2E;
+  color: #171513;
 }
 
 .moonlight-belt-fallback {
@@ -231,9 +231,9 @@
   align-items: center;
   gap: 10px;
   padding: 0 18px;
-  border: 1px solid #C66B3D;
+  border: 1px solid #C8102E;
   border-radius: 999px;
-  background: #C66B3D;
+  background: #C8102E;
   color: #E8DCC7;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 14px;
@@ -243,7 +243,7 @@
 
 .moonlight-belt-cta:hover {
   background: #E8DCC7;
-  color: #C66B3D;
+  color: #C8102E;
 }
 
 .moonlight-belt .moonlight-preview-note {
@@ -268,7 +268,7 @@
   max-width: 320px;
   gap: 9px;
   margin-top: 28px;
-  color: #303B2E;
+  color: #171513;
   font-size: 13px;
 }
 
@@ -280,7 +280,7 @@
 
 .moonlight-date-field svg,
 .moonlight-reserve-note svg {
-  color: #C66B3D;
+  color: #C8102E;
 }
 
 .moonlight-date-field input {
@@ -289,7 +289,7 @@
   border: 1px solid #B08B6E;
   border-radius: 14px;
   background: #D4B895;
-  color: #303B2E;
+  color: #171513;
 }
 
 .moonlight-reserve-note {
@@ -311,7 +311,7 @@
   border: 1px solid #B08B6E;
   border-radius: 20px;
   background: #D4B895;
-  color: #303B2E;
+  color: #171513;
 }
 
 .moonlight-confirmation > span:first-child {

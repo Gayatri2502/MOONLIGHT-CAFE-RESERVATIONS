@@ -4,7 +4,7 @@ A Japanese dining and sushi-bar website concept combining a rotating signature-d
 
 ## Design direction
 
-The visual system follows an Organic direction: sand and oat surfaces, moss and terracotta accents, a serif-led type system, rounded controls, and a restrained grain texture. Its signature interaction is the featured dish orbit, paired with a separate moving sushi belt.
+The visual system keeps its sand and oat surfaces, rounded controls, and restrained grain texture, with bold black typography and cherry-red accents. Its signature interaction is the featured dish orbit, paired with a separate moving sushi belt.
 
 ## The four design prompts
 

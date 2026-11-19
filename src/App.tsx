@@ -26,7 +26,7 @@ const signatureDishes: Dish[] = [
     description: 'Dry-aged for 28 days, seared over charcoal and rested in brown butter. Thin fries, charred greens.',
     likes: 96,
     ingredients: ['Ribeye', 'Fries', 'Broccoli', 'Green beans', 'Smoked ketchup'],
-    accent: '#f6a37c',
+    accent: '#C8102E',
   },
   {
     title: 'Garden',
@@ -40,7 +40,7 @@ const signatureDishes: Dish[] = [
     description: 'Citrus-cured salmon over rocket, frisée and avocado, with cucumber ribbons and a dill dressing.',
     likes: 71,
     ingredients: ['Cured salmon', 'Avocado', 'Rocket', 'Cucumber', 'Dill'],
-    accent: '#f2a6c6',
+    accent: '#C8102E',
   },
   {
     title: 'Black lentil',
@@ -54,7 +54,7 @@ const signatureDishes: Dish[] = [
     description: 'Crisp-skin sea bass on beluga lentils with a jammy egg, glazed carrots and a soy-honey jus.',
     likes: 88,
     ingredients: ['Sea bass', 'Beluga lentils', 'Soft egg', 'Carrot', 'Sesame'],
-    accent: '#bcd98e',
+    accent: '#C8102E',
   },
   {
     title: 'Summer',
@@ -68,7 +68,7 @@ const signatureDishes: Dish[] = [
     description: 'Cantaloupe, cured ham and blistered tomatoes, tossed with rocket and a squeeze of lime.',
     likes: 64,
     ingredients: ['Cantaloupe', 'Cured ham', 'Cherry tomato', 'Rocket', 'Lime'],
-    accent: '#f5d26a',
+    accent: '#C8102E',
   },
   {
     title: 'Sunny',
@@ -82,7 +82,7 @@ const signatureDishes: Dish[] = [
     description: 'One farm egg, basted in brown butter until the edges lace and the yolk just sets. Breakfast, done right.',
     likes: 120,
     ingredients: ['Farm egg', 'Brown butter', 'Sea salt', 'Black pepper'],
-    accent: '#9fcbe8',
+    accent: '#C8102E',
   },
 ]
 

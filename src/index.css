@@ -25,7 +25,7 @@
 
 :root {
   font-family: Georgia, "Times New Roman", serif;
-  color: #303B2E;
+  color: #171513;
   background: #E8DCC7;
   color-scheme: light;
   font-synthesis: none;
@@ -33,24 +33,24 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --background: #E8DCC7;
-  --foreground: #303B2E;
+  --foreground: #171513;
   --card: #D4B895;
-  --card-foreground: #303B2E;
-  --primary: #C66B3D;
+  --card-foreground: #171513;
+  --primary: #C8102E;
   --primary-foreground: #E8DCC7;
   --muted: #D4B895;
   --muted-foreground: #606C38;
   --border: #B08B6E;
   --input: #B08B6E;
-  --ring: #C66B3D;
-  --accent: #C08E3A;
-  --accent-foreground: #303B2E;
-  --destructive: #C66B3D;
+  --ring: #C8102E;
+  --accent: #C8102E;
+  --accent-foreground: #171513;
+  --destructive: #C8102E;
   --chart-1: #606C38;
   --chart-2: #8B9D83;
-  --chart-3: #C08E3A;
+  --chart-3: #C8102E;
   --chart-4: #B08B6E;
-  --chart-5: #C66B3D;
+  --chart-5: #C8102E;
 }
 
 .dark {
@@ -59,21 +59,21 @@
   --foreground: #E8DCC7;
   --card: #606C38;
   --card-foreground: #E8DCC7;
-  --primary: #C66B3D;
+  --primary: #C8102E;
   --primary-foreground: #E8DCC7;
   --muted: #606C38;
   --muted-foreground: #D4B895;
   --border: #8B9D83;
   --input: #8B9D83;
-  --ring: #C66B3D;
-  --accent: #C08E3A;
-  --accent-foreground: #303B2E;
-  --destructive: #C66B3D;
+  --ring: #C8102E;
+  --accent: #C8102E;
+  --accent-foreground: #171513;
+  --destructive: #C8102E;
   --chart-1: #606C38;
   --chart-2: #8B9D83;
-  --chart-3: #C08E3A;
+  --chart-3: #C8102E;
   --chart-4: #B08B6E;
-  --chart-5: #C66B3D;
+  --chart-5: #C8102E;
 }
 
 * {
@@ -90,7 +90,7 @@ body {
   min-height: 100vh;
   margin: 0;
   background: #E8DCC7;
-  color: #303B2E;
+  color: #171513;
 }
 
 button,
@@ -110,11 +110,11 @@ a:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #C66B3D;
+  outline: 2px solid #C8102E;
   outline-offset: 3px;
 }
 
 ::selection {
   color: #E8DCC7;
-  background: #C66B3D;
+  background: #C8102E;
 }
