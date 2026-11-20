@@ -45,3 +45,19 @@ Restaurant and sushi photography is bundled locally in `public/images/`. The sou
 npm run build
 npm run lint
 ```
+
+## Interface and flow
+
+![Signature dish interface](screenshot.jpg)
+
+```mermaid
+flowchart LR
+  Visitor --> Signatures[Signature dish carousel]
+  Visitor --> Search[Search and navigation]
+  Search --> Menu[Sample menu and sushi conveyor]
+  Menu --> Order[Local order preview]
+  Visitor --> Floor[Date, time and table floor]
+  Floor --> Preview[Local reservation preview]
+```
+
+Order and reservation previews are illustrative and do not send data to a restaurant.
